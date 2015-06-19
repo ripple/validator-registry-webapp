@@ -5,9 +5,9 @@
  * @name vagrantApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the vagrantApp
+ * Controller of the validatorsApp
  */
-angular.module('vagrantApp')
+angular.module('validatorsApp')
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

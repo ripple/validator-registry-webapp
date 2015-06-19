@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name vagrantApp
+ * @name validatorsApp
  * @description
- * # vagrantApp
+ * # validatorsApp
  *
  * Main module of the application.
  */
 angular
-  .module('vagrantApp', [
+  .module('validatorsApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -20,12 +20,15 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        redirectTo: '/validators'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/validators/:publicKey', {
+        templateUrl: 'views/validator.html',
+        controller: 'ValidatorCtrl'
+      })
+      .when('/validators', {
+        templateUrl: 'views/validators.html',
+        controller: 'ValidatorsCtrl'
       })
       .otherwise({
         redirectTo: '/'
