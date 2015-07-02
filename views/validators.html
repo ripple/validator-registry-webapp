@@ -10,7 +10,11 @@
     <h2>Ripple Validator UNL Builder</h2>
   </div>
 
-  <table class='table table-striped'>
+  <div class='loading' ng-show='loading'>
+    <h2>{{status}}</h2>
+  </div>
+  
+  <table class='table table-striped' ng-hide='loading'>
 
     <thead>
       <tr>
@@ -20,7 +24,8 @@
     </thead>
 
     <tr ng-repeat="validator in validators">
-      <td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
+      <td>{{validator.validation_public_key}}</td>
+      <!--<td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>-->
       <td>{{validator.domain}}</td>
     </tr>
 
