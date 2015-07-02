@@ -37,12 +37,7 @@
     thead {
       background: #C3D9FF none repeat scroll 0% 0%;
     }
-
-    h1 {
-      padding-bottom: 1em;
-      text-align: center;
-    }
-  </style>
+   </style>
 
   <link rel="shortcut icon" href="/favicon.png">
 
@@ -58,7 +53,6 @@
       .main {
         top: 80px;
         position: relative;
-        padding-bottom: 100px
       }
 
       .validator-form {
@@ -72,24 +66,73 @@
       .navbar a.navbar-brand img {
         width: 115px
       }
+
+      h1,h2,p,a,td,li {
+        font-family: 'Open Sans';
+      }
+   
+      h1 {
+        padding-bottom: 1em;
+        text-align: center;
+      }
+      h2 {
+        padding-top:0.5em;
+        color: rgba(32, 7, 114, 1.0);
+        text-align: left;
+      }
+
+      img.clipboard {
+        width:50px;
+      }
+
+      #copy-button {
+        margin-top:1em;
+        float:right;
+        padding:2em 1em; 
+        border-radius:5px;
+        border: 1px solid rgba(32, 7, 114, 0.5);
+        background-color: rgba(32, 7, 114, 0.1);
+      }
+
+      #copy-button:hover {
+        background-color: rgba(32, 7, 114, 0.4);
+      }
+
+      .links {
+        float:right;
+        padding-top:0.5em;
+        font-size: 150%
+      }
+
+      .built-on-ripple {
+        width: 150px;
+        float: right;
+      }
+
+      .footer {
+        margin-top:6em;
+        margin-bottom: 2em;
+      }
     </style>
   </head>
   <body ng-app="validatorsApp">
 
   <header>
     <div class='container'>
+
           <div class="navbar navbar-default" role="navigation">
-               <div class="navbar-header"><a class="navbar-brand" href="/#/"> <img src="/images/ripple_logo.png" alt="optional logo" height="100%" width="100%"> </a><a class="btn btn-navbar btn-default navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="nb_left pull-left"> <span class="fa fa-reorder"></span></span> <span class="nb_right pull-right">menu</span> </a></div>
-               <div class="collapse navbar-collapse">
-                    <ul class="nav pull-right navbar-nav">
-                         <!--<li><a href="/admin">Admin</a></li>-->
-                    </ul>
-               </div>
+
+            <div class='links'>
+              <a href="/#/validators">Validators</a>
+            </div>
+           <div class="navbar-header"><a class="navbar-brand" href="/#/"> <img src="/images/ripple_logo.png" alt="optional logo" height="100%" width="100%"> </a><a class="btn btn-navbar btn-default navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="nb_left pull-left"> <span class="fa fa-reorder"></span></span> <span class="nb_right pull-right">menu</span> </a></div>
+           <div class="collapse navbar-collapse">
+                <ul class="nav pull-right navbar-nav">
+                     <!--<li><a href="/admin">Admin</a></li>-->
+                </ul>
+           </div>
           </div>
    
-          <div style='margin-right: 1em;' id="sign">
-            <a href="/#/validators">Validators</a>
-          </div>
     </div>
 </header>
     <!--[if lt IE 7]>
@@ -100,11 +143,11 @@
     <div ng-view=""></div>
     </div>
 
-         <div class="container">
-              <div class="row">
-                   <div class="col-sm-6 col-md-6"> Copyright Ripple Labs ©2015 all rights reserved </div>
-      <p><span class="glyphicon glyphicon-heart"></span> From the Decentralization Team</p>
-              </div>
+         <div class="container footer">
+            <div class="row">
+              <p><span class='pull-right'><a href='https://ripple.com/brand-guidelines/'><img class='built-on-ripple' src='/images/built_on_ripple.png'></img></a></p>
+              <div class="col-sm-6 col-md-6"> Copyright Ripple Labs ©2015 all rights reserved </div>
+            </div>
          </div>
 
 
@@ -139,6 +182,7 @@
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/validators.js"></script>
         <script src="scripts/controllers/validator.js"></script>
+        <script src="scripts/ZeroClipboard.min.js"></script>
         <!-- endbuild -->
 </body>
 </html>
