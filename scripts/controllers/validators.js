@@ -7,9 +7,29 @@
  * # AboutCtrl
  * Controller of the validators.ripple
  */
-angular.module('validatorsApp')
-  .controller('ValidatorsCtrl', function ($scope) {
 
+var VALIDATOR_REGISTRY_API = "http://127.0.0.1:1337"
+
+angular.module('validatorsApp')
+  .controller('ValidatorsCtrl', function ($scope, $http) {
+
+
+    $scope.loading = true
+
+    $http({
+      url: VALIDATOR_REGISTRY_API+"/validators",
+      method: "GET"
+    }).success(function(data, status, headers, config) {
+        $scope.loading = false
+        console.log('success', data)
+        console.log('validators', data.validators)
+        $scope.validators = data.validators;
+    }).error(function(data, status, headers, config) {
+        console.log('error', data)
+        $scope.status = status;
+    });
+
+/*
     $scope.validators = {
       "n943hviZ4nZhj3qdN4FqeVMK6JvHE4rcPtExiLebKZXui6oAyUr4": "coinex gateway",
       "n949f75evCHwgyP4fPVgaHqNHxUVN15PsJEZ3B3HnXPcPjcZAoy7": "RL1",
@@ -29,4 +49,6 @@ angular.module('validatorsApp')
       "n9MLVGTjHcKaUComy5ogfd1dZjzuQhqrTMNuefQZmcUPzCj21tX3": "wisepass",
       "n9Mb8ZiVL6bepu2QbSTbPMNVJp4TUj2cRq4qY7A9EMyAdRaKiCnD": "the rock trading"
     }
+*/
   });
+

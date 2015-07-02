@@ -17,7 +17,7 @@
 10 verbose stack     at maybeClose (child_process.js:1015:16)
 10 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1087:5)
 11 verbose pkgid vagrant@0.0.0
-12 verbose cwd /Users/stevenzeiler/github/ripple/validators.ripple.com-human-ui
+12 verbose cwd /Users/stevenzeiler/github/ripple/validator-registry-webapp
 13 error Darwin 13.4.0
 14 error argv "node" "/usr/local/bin/npm" "start"
 15 error node v0.12.4

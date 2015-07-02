@@ -1,0 +1,21 @@
+<div class='row'>
+  <h2>Validators List</h2>
+
+  <table class='table table-striped'>
+
+    <thead>
+      <tr>
+        <th>Validation Public Key</th>
+        <th>Domain</th>
+      </tr>
+    </thead>
+
+    <tr ng-repeat="validator in validators">
+      <td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
+      <td>{{validator.domain}}</td>
+    </tr>
+
+  </table>
+
+</div>
+
