@@ -2,8 +2,9 @@
 
   <div class='row well' id='clipboard-well'>
     <span>
-      <div id="copy-button" data-clipboard-text="{{unl_text}}" title="Click to copy me.">
-      Copy to Clipboard
+      <!--<div id="copy-button" data-toggle="modal" data-clipboard-text="{{unl_text}}" title="Click to copy me.">-->
+      <div ng-if="ValidatorSelector.getSelectedValidators().length > 0" data-target="#myModal" id='copy-button' data-toggle="modal" title="Click to copy me.">
+      Build UNL Config
       <img class='clipboard' src='/images/clipboard.png'/>
       </div>
     </span>
@@ -48,5 +49,30 @@
 
   </table>
 
+</div>
+
+<!-- Button trigger modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Copy the following to your rippled.cfg file:</h4>
+      </div>
+      <div class="modal-body">
+        <p>[validators]</p>
+        <p ng-repeat="validator in ValidatorSelector.getSelectedValidators()">
+          {{ validator.validation_public_key }}&nbsp&nbsp&nbsp&nbsp{{validator.domain }}
+        </p>
+        <br/>
+        <p>[quorum]</p>
+        <p>{{ ValidatorSelector.getQuorum() }}</p>
+      </div>
+        
+      <div class="modal-footer">
+        <button data-clipboard-text="{{buildUNL()}}" id='copy-clipboard' type="button" class="btn btn-primary">Copy to Clipboard</button>
+      </div>
+    </div>
+  </div>
 </div>
 
