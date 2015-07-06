@@ -26,6 +26,41 @@ angular.module('validatorsApp')
       });
     })()
 
+    $scope.selectedValidators = {}
+
+    // ValidatorSelector
+    var ValidatorSelector = (function() {
+      var selectedValidators = {}
+
+      function isSelected(validator) {
+        return selectedValidators[validator.id] ? true : false
+      }
+
+      function toggleSelection(validator) {
+        if (selectedValidators[validator.id]) {
+          delete selectedValidators[validator.id]
+        } else {
+          selectedValidators[validator.id] = true
+        }
+      }
+
+      function getSelectedCount() {
+        return Object.keys(selectedValidators).length
+      }
+
+      return {
+        isSelected: isSelected,
+        toggleSelection: toggleSelection,
+        getSelectedCount: getSelectedCount
+      }
+    })()
+    
+    $scope.ValidatorSelector = ValidatorSelector
+
+    $scope.toggleSelected = function(validator) {
+      ValidatorSelector.toggleSelection(validator)
+      console.log(ValidatorSelector.isSelected(validator))
+    }
 
     $scope.loading = true;
     $scope.status = "Loading Validators..."
@@ -38,20 +73,26 @@ angular.module('validatorsApp')
       + 'n9KiYM9CgngLvtRCQHZwgC2gjpdaZcCcbt3VboxiNFcKuwFVujzS ripple.com\n'
       + 'n9LdgEtkmGB9E2h3K4Vp7iGUaKuq23Zr32ehxiU8FWY7xoxbWTSA ripple.com\n';
 
+
     // load validators from registry api
-    (function() {
-      $http({
-        url: VALIDATOR_REGISTRY_API+"/validators",
-        method: "GET"
-      }).success(function(data, status, headers, config) {
-          console.log('success')
-          $scope.loading = false
-          $scope.validators = data.validators;
-      }).error(function(data, status, headers, config) {
-          console.log('error!!', data)
-          $scope.loading = true;
-          $scope.status = "Error Connecting to Validator Registry API";
-      });
+    var ValidatorLoader = (function() {
+      var scan = function(scope) {
+        $http({
+          url: VALIDATOR_REGISTRY_API+"/validators",
+          method: "GET"
+        }).success(function(data, status, headers, config) {
+            scope.loading = false
+            scope.validators = data.validators;
+        }).error(function(data, status, headers, config) {
+            scope.loading = true;
+            scope.status = "Error Connecting to Validator Registry API";
+        });
+      }
+      return {
+        scan: scan
+      }
     })()
+
+    ValidatorLoader.scan($scope)
   });
 

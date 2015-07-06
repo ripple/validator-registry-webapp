@@ -7,13 +7,29 @@
       <img class='clipboard' src='/images/clipboard.png'/>
       </div>
     </span>
-    <h2>Ripple Validator UNL Builder</h2>
+    <h2>Select a set of validators below for your peers list</h2>
   </div>
 
   <div class='loading' ng-show='loading'>
     <h2>{{status}}</h2>
   </div>
-  
+
+  <div class='selected-validators' ng-if="ValidatorSelector.getSelectedCount() > 0">
+    <table class='table'>
+
+      <h3>Validators Selected for Peers List</h3>
+
+      <tr ng-click ='toggleSelected(validator)'
+          ng-repeat="validator in validators"
+          ng-if="ValidatorSelector.isSelected(validator)"
+          ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
+        <td>{{validator.validation_public_key}}</td>
+        <td>{{validator.domain}}</td>
+      </tr>
+
+    </table>
+  </div>
+
   <table class='table table-striped' ng-hide='loading'>
 
     <thead>
@@ -22,10 +38,11 @@
         <th>Domain</th>
       </tr>
     </thead>
-
-    <tr ng-repeat="validator in validators">
+    <tr ng-click ='toggleSelected(validator)'
+        ng-repeat="validator in validators"
+        ng-if="!ValidatorSelector.isSelected(validator)"
+        ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
       <td>{{validator.validation_public_key}}</td>
-      <!--<td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>-->
       <td>{{validator.domain}}</td>
     </tr>
 
