@@ -122,6 +122,10 @@
         background-color:rgba(42, 68, 128, 0.2);
         padding: 1em;
       }
+
+      .modal {
+        top: 150px;
+      }
     </style>
   </head>
   <body ng-app="validatorsApp">
@@ -152,12 +156,13 @@
     <div ng-view=""></div>
     </div>
 
-         <div class="container footer">
-            <div class="row">
-              <p><span class='pull-right'><a href='https://ripple.com/brand-guidelines/'><img class='built-on-ripple' src='/images/built_on_ripple.png'></img></a></p>
-              <div class="col-sm-6 col-md-6"> Copyright Ripple Labs ©2015 all rights reserved </div>
-            </div>
-         </div>
+    
+    <div class="container footer">
+       <div class="row">
+         <p><span class='pull-right'><a href='https://ripple.com/brand-guidelines/'><img class='built-on-ripple' src='/images/built_on_ripple.png'></img></a></p>
+         <div class="col-sm-6 col-md-6"> Copyright Ripple Labs ©2015 all rights reserved </div>
+       </div>
+    </div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -185,13 +190,17 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/validators.js"></script>
-        <script src="scripts/controllers/validator.js"></script>
-        <script src="scripts/ZeroClipboard.min.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/services/validators_selector.js"></script>
+    <script src="scripts/services/validators_loader.js"></script>
+    <script src="scripts/services/unl_builder.js"></script>
+    <script src="scripts/controllers/validators.js"></script>
+    <script src="scripts/controllers/validator.js"></script>
+    <script src="scripts/ZeroClipboard.min.js"></script>
+    <!-- endbuild -->
+    <script type="text/javascript" src="/scripts/vendor/bootstrap-lightbox.min.js"></script>
 </body>
 </html>
