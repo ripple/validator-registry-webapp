@@ -8,8 +8,6 @@
  * Controller of the validators.ripple
  */
 
-var VALIDATOR_REGISTRY_API = "http://127.0.0.1:1337"
-
 angular.module('validatorsApp')
   .controller('ValidatorsCtrl', [
     '$scope',

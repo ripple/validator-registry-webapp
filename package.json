@@ -1,7 +1,8 @@
 {
-  "name": "vagrant",
-  "version": "0.0.0",
+  "name": "validator-registry-webapp",
+  "version": "0.1.0",
   "dependencies": {
+    "ejs": "^2.3.2",
     "express": "^4.12.4"
   },
   "repository": {},

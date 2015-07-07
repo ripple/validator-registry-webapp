@@ -1,6 +1,8 @@
 
 angular.module('validatorsApp').factory('ValidatorsLoader',['$http', function($http) {
 
+  var VALIDATOR_REGISTRY_API = '<%= VALIDATOR_REGISTRY_API %>'
+
   return (function() {
     return {
       scan: function(scope) {
