@@ -17,3 +17,10 @@ npm install
 npm start
 ````
 
+## Configuration
+
+All configuration is injected with environment variables:
+
+PORT                   (default 1337)
+VALIDATOR_REGISTRY_API (default https://api.validators.ripple.com)
+
