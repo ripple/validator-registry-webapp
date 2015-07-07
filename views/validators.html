@@ -8,7 +8,7 @@
       <img class='clipboard' src='/images/clipboard.png'/>
       </div>
     </span>
-    <h2>Select a set of validators below for your peers list</h2>
+    <h2>Select a set of validators below for your UNL</h2>
   </div>
 
   <div class='loading' ng-show='loading'>
@@ -18,7 +18,7 @@
   <div class='selected-validators' ng-if="ValidatorSelector.getSelectedCount() > 0">
     <table class='table'>
 
-      <h3>Validators Selected for Peers List</h3>
+      <h3>Validators Selected for UNL</h3>
 
       <tr ng-click ='toggleSelected(validator)'
           ng-repeat="validator in validators"
