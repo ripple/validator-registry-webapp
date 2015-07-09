@@ -25,6 +25,7 @@
           ng-if="ValidatorSelector.isSelected(validator)"
           ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
         <td>{{validator.validation_public_key}}</td>
+        <td>{{validator.validations_count}}</td>
         <td>{{validator.domain}}</td>
       </tr>
 
@@ -36,6 +37,7 @@
     <thead>
       <tr>
         <th>Validation Public Key</th>
+        <th>Validations Today</th>
         <th>Domain</th>
       </tr>
     </thead>
@@ -44,6 +46,7 @@
         ng-if="!ValidatorSelector.isSelected(validator)"
         ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
       <td>{{validator.validation_public_key}}</td>
+      <td>{{validator.validations_count}}</td>
       <td>{{validator.domain}}</td>
     </tr>
 
