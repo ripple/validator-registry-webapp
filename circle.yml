@@ -1,0 +1,16 @@
+test:
+  override:
+    - echo "LOL NO TESTS"
+deployment:
+  staging:
+    branch: staging
+    commands:
+      - rm -rf node_modules/
+      - cp validators_loader.staging.js scripts/services/validators_loader.js
+      - rsync -avzP --delete ec2-user@staging.validators.ripple.com:/opt/validators.ripple.com/webui
+  production:
+    branch: master
+    commands:
+      - rm -rf node_modules/
+      - cp validators_loader.production.js scripts/services/validators_loader.js
+      - rsync -avzP --delete ec2-user@production.validators.ripple.com:/opt/validators.ripple.com/webui
