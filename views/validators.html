@@ -1,41 +1,42 @@
-<div class='row'>
 
-  <div class='row well' id='clipboard-well'>
-    <span>
-      <!--<div id="copy-button" data-toggle="modal" data-clipboard-text="{{unl_text}}" title="Click to copy me.">-->
-      <div ng-if="ValidatorSelector.getSelectedValidators().length > 0" data-target="#myModal" id='copy-button' data-toggle="modal" title="Click to copy me.">
-      Build UNL Config
-      <img class='clipboard' src='/images/clipboard.png'/>
-      </div>
-    </span>
-    <h2>Select a set of validators below for your UNL</h2>
-  </div>
+<div class='row clipboard-well'>
+  <span>
+    <!--<div id="copy-button" data-toggle="modal" data-clipboard-text="{{unl_text}}" title="Click to copy me.">-->
+    <div ng-if="ValidatorSelector.getSelectedValidators().length > 0" data-target="#myModal" id='copy-button' data-toggle="modal" title="Click to copy me.">
+    Build UNL Config
+    </div>
+  </span>
+  <h2>Select a set of validators below for your UNL</h2>
+</div>
 
-  <div class='loading' ng-show='loading'>
-    <h2>{{status}}</h2>
-  </div>
+<div class='loading row' ng-show='loading'>
+  <h2>{{status}}</h2>
+</div>
 
-  <div class='selected-validators' ng-if="ValidatorSelector.getSelectedCount() > 0">
-    <table class='table'>
+<div class='selected-validators row' ng-if="ValidatorSelector.getSelectedCount() > 0">
+  <table class='table'>
 
-      <h3>Validators Selected for UNL</h3>
+    <h3>Validators Selected for UNL</h3>
 
-      <tr ng-click ='toggleSelected(validator)'
-          ng-repeat="validator in validators"
-          ng-if="ValidatorSelector.isSelected(validator)"
-          ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
-        <td>{{validator.validation_public_key}}</td>
-        <td>{{validator.validations_count}}</td>
-        <td>{{validator.domain}}</td>
-      </tr>
+    <tr ng-click ='toggleSelected(validator)'
+        ng-repeat="validator in validators"
+        ng-if="ValidatorSelector.isSelected(validator)"
+        ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
+      <td>-</td>
+      <td>{{validator.validation_public_key}}</td>
+      <td>{{validator.validations_count}}</td>
+      <td>{{validator.domain}}</td>
+    </tr>
 
-    </table>
-  </div>
+  </table>
+</div>
 
-  <table class='table table-striped' ng-hide='loading'>
+<div class='row' ng-hide='loading'>
+  <table class='table table-striped'>
 
     <thead>
       <tr>
+        <th></th>
         <th>Validation Public Key</th>
         <th>Validations Today</th>
         <th>Domain</th>
@@ -45,14 +46,15 @@
         ng-repeat="validator in validators"
         ng-if="!ValidatorSelector.isSelected(validator)"
         ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
+      <td>+</td>
       <td>{{validator.validation_public_key}}</td>
       <td>{{validator.validations_count}}</td>
       <td>{{validator.domain}}</td>
     </tr>
 
   </table>
-
 </div>
+
 
 <!-- Button trigger modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
