@@ -12,14 +12,14 @@ angular.module('validatorsApp').factory('ValidatorsSelectorService', function() 
     }
 
     function isSelected(validator) {
-      return selectedValidators[validator.id] ? true : false
+      return selectedValidators[validator.validation_public_key] ? true : false
     }
 
     function toggleSelection(validator) {
-      if (selectedValidators[validator.id]) {
-        delete selectedValidators[validator.id]
+      if (selectedValidators[validator.validation_public_key]) {
+        delete selectedValidators[validator.validation_public_key]
       } else {
-        selectedValidators[validator.id] = validator
+        selectedValidators[validator.validation_public_key] = validator
       }
     }
 
@@ -32,17 +32,12 @@ angular.module('validatorsApp').factory('ValidatorsSelectorService', function() 
       return quorum
     }
 
-    function buildUNL() {
-      return 'THE UNL!'
-    }
-
     return {
       isSelected: isSelected,
       toggleSelection: toggleSelection,
       getSelectedCount: getSelectedCount,
       getSelectedValidators: getSelectedValidators,
-      getQuorum: getQuorum,
-      buildUNL: buildUNL
+      getQuorum: getQuorum
     }
   })()
 })
