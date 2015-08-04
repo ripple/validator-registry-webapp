@@ -16,5 +16,11 @@ app.get('/scripts/services/validators_loader.js', function(req, res) {
   })
 })
 
+app.get('/scripts/services/ValidatorHistoryService.js', function(req, res) {
+  res.render('scripts/services/ValidatorHistoryService.ejs', {
+    VALIDATOR_REGISTRY_API: VALIDATOR_REGISTRY_API
+  })
+})
+
 app.listen(process.env.PORT || 1337)
 

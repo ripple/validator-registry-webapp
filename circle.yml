@@ -7,6 +7,7 @@ deployment:
     commands:
       - rm -rf node_modules/
       - cp validators_loader.staging.js scripts/services/validators_loader.js
+      - cp ValidatorHistoryService.staging.js scripts/services/ValidatorHistoryService.js
       - rsync -avzP --delete ec2-user@api-staging.validators.ripple.com:/opt/validators.ripple.com/webui
   production:
     branch: master
