@@ -16,17 +16,6 @@ angular.module('validatorsApp')
     'ValidatorsLoader',
     'UNLBuilder', function ($scope, $http, ValidatorSelector, ValidatorsLoader, UNLBuilder) {
 
-    // load clipboard flash plugin
-    (function () {
-      var client = new ZeroClipboard( document.getElementById("copy-clipboard") );
-
-      client.on( "ready", function( readyEvent ) {
-        client.on( "aftercopy", function( event ) {
-          alert("Copied text to clipboard: \n" + event.data["text/plain"] );
-        } );
-      });
-    })()
-
     $scope.buildUNL = function() {
       var validators = ValidatorSelector.getSelectedValidators()
       var quorum = ValidatorSelector.getQuorum()
