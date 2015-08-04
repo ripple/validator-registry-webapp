@@ -8,7 +8,23 @@
  * Controller of the validators.ripple
  */
 angular.module('validatorsApp')
-  .controller('ValidatorCtrl', function ($scope, $routeParams) {
+  .controller('ValidatorCtrl', [
+    '$scope',
+    '$routeParams',
+    'ValidatorHistoryService', function ($scope, $routeParams, ValidatorHistoryService) {
+
+    $scope.loading = true;
+    $scope.reports = []
+
+    ValidatorHistoryService.fetch($routeParams.publicKey).then(function(reports) {
+      $scope.loading = false
+      $scope.reports = reports
+      $scope.$apply()
+    })
+    .catch(function(error) {
+      $scope.loading = false;
+      alert('error loading validation history for', $routeParams.publicKey);
+    });
 
     var validators = {
       "n943hviZ4nZhj3qdN4FqeVMK6JvHE4rcPtExiLebKZXui6oAyUr4": "coinex gateway",
@@ -28,8 +44,8 @@ angular.module('validatorsApp')
       "n9MG8aiQxrupaCnkvTdLeEN6XGsedSdLd8NnVE9RgfaanPvrspL7": "bitstamp",
       "n9MLVGTjHcKaUComy5ogfd1dZjzuQhqrTMNuefQZmcUPzCj21tX3": "wisepass",
       "n9Mb8ZiVL6bepu2QbSTbPMNVJp4TUj2cRq4qY7A9EMyAdRaKiCnD": "the rock trading"
-    }
+    };
+    */
 
-    $scope.validatorPublicKey = $routeParams.publicKey
-    $scope.validatorOrganization = validators[$routeParams.publicKey]
-  });
+    $scope.validatorPublicKey = $routeParams.publicKey;
+  }]);

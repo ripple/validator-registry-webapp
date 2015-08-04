@@ -2,7 +2,7 @@
 <div class='row clipboard-well'>
   <span>
     <!--<div id="copy-button" data-toggle="modal" data-clipboard-text="{{unl_text}}" title="Click to copy me.">-->
-    <div ng-if="ValidatorSelector.getSelectedValidators().length > 0" data-target="#myModal" id='copy-button' data-toggle="modal" title="Click to copy me.">
+    <div ng-if="ValidatorSelector.getSelectedValidators().length > 0" data-target="#myModal" id='copy-button' data-toggle="modal">
     Build UNL Config
     </div>
   </span>
@@ -71,10 +71,6 @@
         <br/>
         <p>[quorum]</p>
         <p>{{ ValidatorSelector.getQuorum() }}</p>
-      </div>
-        
-      <div class="modal-footer">
-        <button data-clipboard-text="{{buildUNL()}}" id='copy-clipboard' type="button" class="btn btn-primary">Copy to Clipboard</button>
       </div>
     </div>
   </div>
