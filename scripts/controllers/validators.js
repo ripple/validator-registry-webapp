@@ -11,10 +11,9 @@
 angular.module('validatorsApp')
   .controller('ValidatorsCtrl', [
     '$scope',
-    '$http',
     'ValidatorsSelectorService',
-    'ValidatorsLoader',
-    'UNLBuilder', function ($scope, $http, ValidatorSelector, ValidatorsLoader, UNLBuilder) {
+    'Validators',
+    'UNLBuilder', function ($scope, ValidatorSelector, Validators, UNLBuilder) {
 
     $scope.buildUNL = function() {
       var validators = ValidatorSelector.getSelectedValidators()
@@ -33,6 +32,10 @@ angular.module('validatorsApp')
     $scope.loading = true
     $scope.status = "Loading Validators..."
 
-    ValidatorsLoader.scan($scope)
-  }]);
+    Validators.getValidators().then(function(validators) {
+      $scope.loading = false
+      $scope.validators = validators
+      $scope.$apply()
+    })
+  }])
 
