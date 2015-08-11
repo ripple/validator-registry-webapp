@@ -18,6 +18,22 @@ angular
     'ngTouch'
   ])
   .config(function ($routeProvider) {
+
+    var response = jQuery.ajax({
+      type: 'GET',
+      url: '/config/config.json',
+      cache: false,
+      async: false,
+      contentType: 'application/json',
+      dataType: 'json'
+    });
+
+    if (response.status === 200) {
+       window.config = angular.fromJson(response.responseText);
+    } else {
+      alert('error loading configuration')
+    }
+
     $routeProvider
       .when('/', {
         redirectTo: '/validators'
@@ -34,3 +50,4 @@ angular
         redirectTo: '/'
       });
   });
+

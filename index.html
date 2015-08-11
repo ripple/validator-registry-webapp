@@ -20,6 +20,11 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
   <style>
+
+    .validator-show-domain {
+      text-align: center;
+    }
+
     .notice, .alert {
       top: 80px;
       position: relative;
@@ -279,12 +284,14 @@
     <script src="scripts/vendor/superagent.js"></script>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+    <script src="scripts/environment.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
-    <script src="scripts/services/validators_selector.js"></script>
+    <script src="scripts/services/ValidatorsSelector.js"></script>
     <script src="scripts/services/ValidatorHistoryService.js"></script>
-    <script src="scripts/services/unl_builder.js"></script>
+    <script src="scripts/services/UNLBuilder.js"></script>
     <script src="scripts/services/Validators.js"></script>
     <script src="scripts/controllers/validators.js"></script>
     <script src="scripts/controllers/validator.js"></script>

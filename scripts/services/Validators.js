@@ -1,4 +1,3 @@
-const API = 'http://127.0.0.1:1337'
 
 angular.module('validatorsApp').factory('Validators',['$http', function($http) {
 
@@ -7,7 +6,7 @@ angular.module('validatorsApp').factory('Validators',['$http', function($http) {
   function fetch() {
     return new Promise(function(resolve,reject) {
       http
-        .get(API+'/validators')
+        .get(window.config.VALIDATOR_REGISTRY_API+'/validators')
         .end(function(error, response) {
           if (error) {
             reject(error)
