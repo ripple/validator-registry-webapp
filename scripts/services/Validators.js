@@ -67,7 +67,7 @@ angular.module('validatorsApp').factory('Validators',['$http', function($http) {
   }
 
   function getDomain(validationPublicKey) {
-    getValidators().then(function(validators) {
+    return getValidators().then(function(validators) {
       var validator = _.find(validators, function(validator) {
         return validator.validation_public_key === validationPublicKey
       })

@@ -30,6 +30,9 @@ angular.module('validatorsApp')
     $scope.validatorPublicKey = $routeParams.publicKey;
 
     Validators.getValidators().then(function(validators) {
-      $scope.domain = Validators.getDomain($routeParams.publicKey)
+      Validators.getDomain($routeParams.publicKey).then(function(domain) {
+        $scope.domain = domain
+        $scope.$apply()
+      })
     })
   }]);
