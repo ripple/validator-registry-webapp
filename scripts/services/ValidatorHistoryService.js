@@ -2,8 +2,6 @@
 angular.module('validatorsApp').factory('ValidatorHistoryService',
   ['$http', function($http) {
 
-  console.log('in validator history service', window.config)
-
   function fetch(validationPublicKey) {
     return new Promise(function(resolve, reject) {
       $http({
