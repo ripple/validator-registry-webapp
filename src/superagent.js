@@ -1,0 +1,2 @@
+global.http = require('superagent')
+

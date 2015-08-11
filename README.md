@@ -1,7 +1,6 @@
-# validators.ripple.com frontend
+# validators.ripple.com human user interface
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.11.1.
+Completely static html, css, and javascript
 
 ## Dependencies
 
@@ -11,18 +10,18 @@ bower install
 npm install
 ````
 
-## Production
+## Development
 
 ````
 npm start
 ````
 
+Will start the development server on port 3000
+
 ## Configuration
 
-All configuration is injected with environment variables:
+All configuration is injected with `config/config.json`
 
-````
-PORT                   (default 1337)
-VALIDATOR_REGISTRY_API (default https://api.validators.ripple.com)
-````
+For the staging and production environments Circle CI will copy
+the corresponding config file to override config/config.json
 

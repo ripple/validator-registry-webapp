@@ -11,7 +11,8 @@ angular.module('validatorsApp')
   .controller('ValidatorCtrl', [
     '$scope',
     '$routeParams',
-    'ValidatorHistoryService', function ($scope, $routeParams, ValidatorHistoryService) {
+    'Validators',
+    'ValidatorHistoryService', function ($scope, $routeParams, Validators, ValidatorHistoryService) {
 
     $scope.loading = true;
     $scope.reports = []
@@ -27,4 +28,8 @@ angular.module('validatorsApp')
     });
 
     $scope.validatorPublicKey = $routeParams.publicKey;
+
+    Validators.getValidators().then(function(validators) {
+      $scope.domain = Validators.getDomain($routeParams.publicKey)
+    })
   }]);
