@@ -22,6 +22,6 @@ Will start the development server on port 3000
 
 All configuration is injected with `config/config.json`
 
-For the stating and production environments Circle CI will copy
+For the staging and production environments Circle CI will copy
 the corresponding config file to override config/config.json
 
