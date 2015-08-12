@@ -24,7 +24,8 @@
         ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
       <td class='toggle' ng-click ='toggleSelected(validator)'>-</td>
       <td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
-      <td>{{validator.validations_count}}</td>
+      <td>{{validator.correlation_coefficient}}</td>
+      <td>{{validator.validations}}</td>
       <td>{{validator.domain}}</td>
     </tr>
 
@@ -38,7 +39,8 @@
       <tr>
         <th></th>
         <th>Validation Public Key</th>
-        <th>Validations Today</th>
+        <th>Correlation Coefficient</th>
+        <th>Validations Yesterday</th>
         <th>Domain</th>
       </tr>
     </thead>
@@ -47,7 +49,8 @@
         ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
       <td class='toggle' ng-click ='toggleSelected(validator)'>+</td>
       <td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
-      <td>{{validator.validations_count}}</td>
+      <td>{{validator.correlation_coefficient}}</td>
+      <td>{{validator.validations}}</td>
       <td>{{validator.domain}}</td>
     </tr>
 
