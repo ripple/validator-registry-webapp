@@ -3,16 +3,17 @@
   "version": "0.1.1",
   "dependencies": {
     "ejs": "^2.3.2",
-    "express": "^4.12.4"
-  },
-  "repository": {},
-  "scripts": {
-    "start": "node server.js",
-    "test": "echo 'insert full test cover here'"
+    "express": "^4.12.4",
+    "serve": "^1.4.0",
+    "superagent": "^1.3.0"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/ripple/validator-registry-webapp.git"
+  },
+  "scripts": {
+    "start": "serve ./",
+    "test": "echo 'insert full test cover here'"
   },
   "bin": {
     "validator-registry-webapp": "./server.js"
