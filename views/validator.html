@@ -1,7 +1,8 @@
 
 <div class='row'>
   <h1>{{validatorPublicKey}}</h1>
-  <h3 class='validator-show-domain'>{{domain}}</h3>
+  <h3 ng-if="domain" class='validator-show-domain'>{{domain}}</h3>
+  <h3 ng-if="!domain" class='validator-show-domain'>Is this your validator? <a style='text-decoration:underline; font-weight:bold' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification' target='_blank'>Verify Domain</a></h3>
   <h2>Historical Performance</h2>
 </div>
 

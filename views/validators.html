@@ -26,7 +26,8 @@
       <td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
       <td>{{validator.correlation_coefficient}}</td>
       <td>{{validator.validations}}</td>
-      <td>{{validator.domain}}</td>
+      <td ng-if="validator.domain">{{validator.domain}}</td>
+      <td ng-if="!validator.domain"><a target='_blank' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification'>?</a></td>
     </tr>
 
   </table>
@@ -51,7 +52,8 @@
       <td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
       <td>{{validator.correlation_coefficient}}</td>
       <td>{{validator.validations}}</td>
-      <td>{{validator.domain}}</td>
+      <td ng-if="validator.domain">{{validator.domain}}</td>
+      <td ng-if="!validator.domain"><a target='_blank' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification'>?</a></td>
     </tr>
 
   </table>
