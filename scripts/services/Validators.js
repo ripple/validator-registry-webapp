@@ -3,15 +3,15 @@ angular.module('validatorsApp').factory('Validators',['$http', function($http) {
 
   var combined
 
-  function fetchValidations() {
+  function fetchReport() {
     return new Promise(function(resolve,reject) {
       http
-        .get(window.config.VALIDATOR_REGISTRY_API+'/validations')
+        .get(window.config.VALIDATOR_REGISTRY_API+'/reports')
         .end(function(error, response) {
           if (error) {
             reject(error)
           } else {
-            resolve(response.body.validations)
+            resolve(response.body.report.validators)
           }
         })
     })
@@ -35,34 +35,43 @@ angular.module('validatorsApp').factory('Validators',['$http', function($http) {
     if (combined) {
       return Promise.resolve(combined)
     } else {
-      return fetchValidations().then(function(validations) {
+      return fetchReport().then(function(report) {
 
         return fetchValidators().then(function(validators) {
 
-          combined = sortByValidations(reduceValidators(validators, validations))
+          var reduced = reduceValidators(validators, report)
+          combined = sortByCorrelationCoefficient(reduced)
+
           return combined
         })
       })
     }
   }
 
-  function sortByValidations(validations) {
+  function sortByCorrelationCoefficient(validations) {
     return _.sortBy(validations, function(validation) {
-      return validation.validations_count * -1
+      return validation.correlation_coefficient * -1
     })
   }
 
-  function reduceValidators(validators, validations) {
+  function reduceValidators(validators, report) {
     var reduced = []
-    validations.forEach(function(validation) {
+
+    _.keys(report).forEach(function(validationPublicKey) {
+
       var validator = _.find(validators, function(validator) {
-        return validator.validation_public_key === validation.validation_public_key
+        return validator.validation_public_key === validationPublicKey
       })
-      if (validator) {
-        validation.domain = validator.domain
-      }
-      reduced.push(validation)
+
+      reduced.push({
+        validation_public_key: validationPublicKey,
+        correlation_coefficient: report[validationPublicKey].correlation_coefficient || 0,
+        divergence_coefficient: undefined,
+        validations: report[validationPublicKey].validations,
+        domain: validator.domain
+      })
     })
+
     return reduced
   }
 
