@@ -176,3 +176,7 @@ td.toggle:hover {
 .toggle a {
   cursor: pointer;
 }
+
+.hidden-thead {
+  opacity: 0;
+}

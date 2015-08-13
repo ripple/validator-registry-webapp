@@ -1,12 +1,13 @@
 <div class='row'>
   <h1>Validator Registry</h1>
+  <hr/>
   <div class='loading row' ng-show='loading'>
     <h2>{{status}}</h2>
   </div>
 </div>
 
 <div class='row'>
-  <h3 class='' ng-if="ValidatorSelector.getSelectedValidators().length > 0">
+  <h3 ng-if="ValidatorSelector.getSelectedValidators().length > 0">
     <span class='pull-left'>
       Validators Selected for UNL
     </span>
@@ -20,6 +21,15 @@
 
 <div class='row' ng-if="ValidatorSelector.getSelectedCount() > 0">
   <table class='table table-striped'>
+    <thead class='hidden-thead'>
+      <tr>
+        <th></th>
+        <th>Validation Public Key</th>
+        <th>Agreement Coefficient</th>
+        <th>Validations Yesterday</th>
+        <th>Domain</th>
+      </tr>
+    </thead>
 
     <tr
         ng-repeat="validator in validators"
