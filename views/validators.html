@@ -1,22 +1,25 @@
-
-<div class='row clipboard-well'>
-  <span>
-    <!--<div id="copy-button" data-toggle="modal" data-clipboard-text="{{unl_text}}" title="Click to copy me.">-->
-    <div ng-if="ValidatorSelector.getSelectedValidators().length > 0" data-target="#myModal" id='copy-button' data-toggle="modal">
-    Build UNL Config
-    </div>
-  </span>
-  <h2>Select a set of validators below for your UNL</h2>
+<div class='row'>
+  <h1>Validator Registry</h1>
+  <div class='loading row' ng-show='loading'>
+    <h2>{{status}}</h2>
+  </div>
 </div>
 
-<div class='loading row' ng-show='loading'>
-  <h2>{{status}}</h2>
+<div class='row'>
+  <h3 class='' ng-if="ValidatorSelector.getSelectedValidators().length > 0">
+    <span class='pull-left'>
+      Validators Selected for UNL
+    </span>
+    <span class='pull-right'>
+      <div ng-if="ValidatorSelector.getSelectedValidators().length > 0" data-target="#myModal" id='copy-button' data-toggle="modal">
+      Build UNL Config
+      </div>
+    </span>
+  </h3>
 </div>
 
 <div class='row' ng-if="ValidatorSelector.getSelectedCount() > 0">
   <table class='table table-striped'>
-
-    <h3>Validators Selected for UNL</h3>
 
     <tr
         ng-repeat="validator in validators"
@@ -34,6 +37,7 @@
 </div>
 
 <div class='row' ng-hide='loading'>
+  <h3 class='pull-left' ng-if="ValidatorSelector.getSelectedValidators().length == 0">Select a set of validators below for your UNL</h3>
   <table class='table table-striped'>
 
     <thead>
