@@ -1,0 +1,140 @@
+/*
+  ******************
+  Custom CSS
+  ******************
+*/
+
+html, body {
+  font-family: 'Open Sans';
+}
+
+.main {
+  top: 80px;
+  position: relative;
+}
+
+.validator-form {
+  margin-top:2em;
+}
+
+.validator-form input[type='submit']{
+  margin-top:1em;
+}
+
+.navbar a.navbar-brand img {
+  width: 115px
+}
+
+h1,h2,p,a,td,li {
+  font-family: 'Open Sans';
+}
+
+h1 {
+  padding-bottom: 1em;
+  text-align: center;
+}
+h2 {
+  padding-top:0.5em;
+  color: rgba(32, 7, 114, 1.0);
+  text-align: left;
+}
+
+img.clipboard {
+  width:50px;
+}
+
+#copy-button {
+  margin-top:1em;
+  float:right;
+  padding:2em 1em;
+  border-radius:5px;
+  border: 1px solid rgba(39, 80, 125, 1);
+  background-color: rgba(39, 80, 125, 1);
+  color: #ccc;
+  cursor: pointer;
+}
+
+#copy-button:hover {
+  background-color: rgba(39, 80, 125, 0.5);
+  color: #fff;
+  cursor: hand;
+}
+
+.links {
+  float:right;
+  padding-top:0.5em;
+  font-size: 150%
+}
+
+.built-on-ripple {
+  width: 150px;
+  float: right;
+}
+
+.footer {
+  margin-top:6em;
+  margin-bottom: 2em;
+}
+
+.loading h2{
+  text-align:center;
+}
+
+.selected-validators {
+}
+
+a, td:hover, tr:hover {
+  cursor: hand;
+}
+
+.modal {
+  top: 150px;
+}
+
+.clipboard-well {
+  margin-bottom: 2em;
+}
+
+.table-row-hover {
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition: 5s;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+h1, h2, h3, h4, h5, h6, a {
+  color: #346AA9;
+}
+
+.validator-show-domain {
+  text-align: center;
+}
+
+.notice, .alert {
+  top: 80px;
+  position: relative;
+}
+
+.input-error {
+  display: none;
+  padding: 0.5em;
+  color: red;
+  border: 1px solid red;
+}
+
+.input-group {
+  width: 100%;
+}
+
+thead {
+  background: #eaf0f7
+}
+
+td.toggle:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+.toggle a {
+  cursor: pointer;
+}

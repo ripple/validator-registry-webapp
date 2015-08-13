@@ -19,40 +19,6 @@
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-  <style>
-
-    .validator-show-domain {
-      text-align: center;
-    }
-
-    .notice, .alert {
-      top: 80px;
-      position: relative;
-    }
-
-    .input-error {
-      display: none;
-      padding: 0.5em;
-      color: red;
-      border: 1px solid red;
-    }
-
-    .input-group {
-      width: 100%;
-    }
-
-    thead {
-      background: #eaf0f7
-    }
-
-    td.toggle:hover {
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .toggle a {
-      cursor: pointer;
-    }
-   </style>
 
    <link rel="icon" type="image/png" href="https://ripple.com/wp-content/themes/ripple-beta/assets/img/favicon-32x32.png" sizes="32x32" />
    <link rel="icon" type="image/png" href="https://ripple.com/wp-content/themes/ripple-beta/assets/img/favicon-16x16.png" sizes="16x16" />
@@ -66,160 +32,9 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-   <!-- endbuild --> 
-    <style>
-      .main {
-        top: 80px;
-        position: relative;
-      }
+    <link rel="stylesheet" href="styles/custom.css">
+   <!-- endbuild -->
 
-      .validator-form {
-        margin-top:2em;
-      }
-
-      .validator-form input[type='submit']{
-        margin-top:1em;
-      }
-
-      .navbar a.navbar-brand img {
-        width: 115px
-      }
-
-      h1,h2,p,a,td,li {
-        font-family: 'Open Sans';
-      }
-   
-      h1 {
-        padding-bottom: 1em;
-        text-align: center;
-      }
-      h2 {
-        padding-top:0.5em;
-        color: rgba(32, 7, 114, 1.0);
-        text-align: left;
-      }
-
-      img.clipboard {
-        width:50px;
-      }
-
-      #copy-button {
-        margin-top:1em;
-        float:right;
-        padding:2em 1em; 
-        border-radius:5px;
-        border: 1px solid rgba(39, 80, 125, 1);
-        background-color: rgba(39, 80, 125, 1);
-        color: #ccc;
-        cursor: pointer;
-      }
-
-      #copy-button:hover {
-        background-color: rgba(39, 80, 125, 0.5);
-        color: #fff;
-        cursor: hand;
-      }
-
-      .links {
-        float:right;
-        padding-top:0.5em;
-        font-size: 150%
-      }
-
-      .built-on-ripple {
-        width: 150px;
-        float: right;
-      }
-
-      .footer {
-        margin-top:6em;
-        margin-bottom: 2em;
-      }
-
-      .loading h2{
-        text-align:center;
-      }
-
-      .selected-validators {
-      }
-
-      a, td:hover, tr:hover {
-        cursor: hand;
-      }
-
-      .modal {
-        top: 150px;
-      }
-
-      .clipboard-well {
-        margin-bottom: 2em;
-      }
-    </style>
-    <style>
-    /*
-      ******************
-      Fonts
-      ****************** 
-    */ 
-
-      @font-face {
-          font-family: 'open_sansregular';
-          src: url('../font/OpenSans-Regular-webfont.eot');
-          src: url('../font/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-               url('../font/OpenSans-Regular-webfont.woff') format('woff'),
-               url('../font/OpenSans-Regular-webfont.ttf') format('truetype'),
-               url('../font/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
-          font-weight: normal;
-          font-style: normal;
-      }
-
-      @font-face {
-          font-family: 'open_sansbold';
-          src: url('../font/OpenSans-Bold-webfont.eot');
-          src: url('../font/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-               url('../font/OpenSans-Bold-webfont.woff') format('woff'),
-               url('../font/OpenSans-Bold-webfont.ttf') format('truetype'),
-               url('../font/OpenSans-Bold-webfont.svg#open_sansbold') format('svg');
-          font-weight: normal;
-          font-style: normal;
-      }
-
-      @font-face {
-          font-family: 'open_sanslight';
-          src: url('../font/OpenSans-Light-webfont.eot');
-          src: url('../font/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
-               url('../font/OpenSans-Light-webfont.woff') format('woff'),
-               url('../font/OpenSans-Light-webfont.ttf') format('truetype'),
-               url('../font/OpenSans-Light-webfont.svg#open_sanslight') format('svg');
-          font-weight: normal;
-          font-style: normal;
-
-      }
-
-      @font-face {
-          font-family: 'open_sansextrabold';
-          src: url('../font/OpenSans-ExtraBold-webfont.eot');
-          src: url('../font/OpenSans-ExtraBold-webfont.eot?#iefix') format('embedded-opentype'),
-               url('../font/OpenSans-ExtraBold-webfont.woff') format('woff'),
-               url('../font/OpenSans-ExtraBold-webfont.ttf') format('truetype'),
-               url('../font/OpenSans-ExtraBold-webfont.svg#open_sansextrabold') format('svg');
-          font-weight: normal;
-          font-style: normal;
-      }
-
-      .table-row-hover {
-        -o-transition:.5s;
-        -ms-transition:.5s;
-        -moz-transition: 5s;
-        -webkit-transition: .5s;
-        transition: .5s;
-      }
-    </style>
-    <style>
-      h1, h2, h3, h4, h5, h6, a {
-        color: #346AA9;
-      }
-    </style>
   </head>
   <body ng-app="validatorsApp">
 
@@ -235,7 +50,7 @@
                 </ul>
            </div>
           </div>
-   
+
     </div>
 </header>
     <!--[if lt IE 7]>
@@ -246,11 +61,10 @@
     <div ng-view=""></div>
     </div>
 
-    
+
     <div class="container footer">
        <div class="row">
-         <p><span class='pull-right'><a href='https://ripple.com/brand-guidelines/'><img class='built-on-ripple' src='/images/built_on_ripple.png'></img></a></p>
-         <div class="col-sm-6 col-md-6"> Copyright Ripple Labs ©2015 all rights reserved </div>
+         <div class="col-md-12"> Copyright Ripple Labs &copy;2015 All Rights Reserved </div>
        </div>
     </div>
 
