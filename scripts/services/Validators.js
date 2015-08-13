@@ -2,11 +2,12 @@
 angular.module('validatorsApp').factory('Validators',['$http', function($http) {
 
   var combined
+  var DATE = moment().subtract(1, 'day').format('YYYY-MM-DD')
 
   function fetchReport() {
     return new Promise(function(resolve,reject) {
       http
-        .get(window.config.VALIDATOR_REGISTRY_API+'/reports')
+        .get(window.config.VALIDATOR_REGISTRY_API+'/reports/'+DATE)
         .end(function(error, response) {
           if (error) {
             reject(error)
