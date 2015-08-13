@@ -37,8 +37,8 @@
         ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
       <td class='toggle' ng-click ='toggleSelected(validator)'>-</td>
       <td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
-      <td>{{validator.agreement_coefficient}}</td>
-      <td>{{validator.disagreement_coefficient}}</td>
+      <td>{{validator.agreement_coefficient.toFixed(5)}}</td>
+      <td>{{validator.disagreement_coefficient.toFixed(5)}}</td>
       <td>{{validator.validations}}</td>
       <td ng-if="validator.domain">{{validator.domain}}</td>
       <td ng-if="!validator.domain"><a target='_blank' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification'>?</a></td>
@@ -66,8 +66,8 @@
         ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
       <td class='toggle' ng-click ='toggleSelected(validator)'>+</td>
       <td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
-      <td>{{validator.agreement_coefficient}}</td>
-      <td>{{validator.disagreement_coefficient}}</td>
+      <td>{{validator.agreement_coefficient.toFixed(5)}}</td>
+      <td>{{validator.disagreement_coefficient.toFixed(5)}}</td>
       <td>{{validator.validations}}</td>
       <td ng-if="validator.domain">{{validator.domain}}</td>
       <td ng-if="!validator.domain"><a target='_blank' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification'>?</a></td>
