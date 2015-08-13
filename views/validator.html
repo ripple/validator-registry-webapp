@@ -11,14 +11,16 @@
     <thead>
       <tr>
         <th>Date</th>
-        <th>Total Validations</th>
         <th>Agreement Coefficient</th>
+        <th>Disagreement Coefficient</th>
+        <th>Total Validations</th>
       </tr>
     </thead>
     <tr ng-repeat="report in reports">
       <td>{{report.date}}</td>
-      <td>{{report.validations}}</td>
-      <td>{{report.correlation_coefficient}}</td>
+      <td>{{report.entries[0].agreement_coefficient}}</td>
+      <td>{{report.entries[0].disagreement_coefficient}}</td>
+      <td>{{report.entries[0].validations}}</td>
     </tr>
   </table>
 </div>
