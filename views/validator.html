@@ -1,7 +1,8 @@
 
 <div class='row'>
   <h1>{{validatorPublicKey}}</h1>
-  <h3 class='validator-show-domain'>{{domain}}</h3>
+  <h3 ng-if="domain" class='validator-show-domain'>{{domain}}</h3>
+  <h3 ng-if="!domain" class='validator-show-domain'>Is this your validator? <a style='text-decoration:underline; font-weight:bold' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification' target='_blank'>Verify Domain</a></h3>
   <h2>Historical Performance</h2>
 </div>
 
@@ -11,15 +12,13 @@
       <tr>
         <th>Date</th>
         <th>Total Validations</th>
-        <th>Correlation Coefficient</th>
-        <th>Divergence Coefficient</th>
+        <th>Agreement Coefficient</th>
       </tr>
     </thead>
     <tr ng-repeat="report in reports">
       <td>{{report.date}}</td>
       <td>{{report.validations}}</td>
       <td>{{report.correlation_coefficient}}</td>
-      <td>{{report.divergence_coefficient}}</td>
     </tr>
   </table>
 </div>
