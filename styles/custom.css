@@ -149,6 +149,10 @@ h1 {
   text-align: left;
 }
 
+.validator-show-domain a {
+  text-decoration: underline;
+}
+
 .notice, .alert {
   top: 80px;
   position: relative;
@@ -179,4 +183,13 @@ td.toggle:hover {
 
 .hidden-thead {
   opacity: 0;
+}
+
+tr:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+tr a:hover {
+  text-decoration:underline;
 }

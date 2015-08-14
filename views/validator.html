@@ -1,8 +1,8 @@
 
 <div class='row'>
-  <h1><a ng-href="/# /">Validator Registry</a></h1>
-  <h3 ng-if="domain" class='validator-show-domain'>{{domain}} - {{validatorPublicKey}}</h3>
-  <h3 ng-if="!domain" class='validator-show-domain'>Is this your validator? <a style='text-decoration:underline; font-weight:bold' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification' target='_blank'>Verify Domain</a></h3>
+  <h1><a ng-href='/#/'>Validator Registry</a></h1>
+  <h3 ng-if="domain" class='validator-show-domain'><a href='https://{{domain}}'>{{domain}}</a> - {{validatorPublicKey}}</h3>
+  <h3 ng-if="!domain" class='validator-show-domain'><a style='text-decoration:underline; font-weight:bold' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification' target='_blank'>Unverified</a></h3>
   <h2>Historical Performance</h2>
 </div>
 
