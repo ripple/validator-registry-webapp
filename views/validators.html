@@ -37,7 +37,8 @@
         ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
       <td class='toggle' ng-click ='toggleSelected(validator)'>-</td>
       <td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
-      <td>{{validator.correlation_coefficient}}</td>
+      <td>{{validator.agreement_coefficient}}</td>
+      <td>{{validator.disagreement_coefficient}}</td>
       <td>{{validator.validations}}</td>
       <td ng-if="validator.domain">{{validator.domain}}</td>
       <td ng-if="!validator.domain"><a target='_blank' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification'>?</a></td>
@@ -55,6 +56,7 @@
         <th></th>
         <th>Validation Public Key</th>
         <th>Agreement Coefficient</th>
+        <th>Disagreement Coefficient</th>
         <th>Validations Yesterday</th>
         <th>Domain</th>
       </tr>
@@ -64,7 +66,8 @@
         ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
       <td class='toggle' ng-click ='toggleSelected(validator)'>+</td>
       <td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
-      <td>{{validator.correlation_coefficient}}</td>
+      <td>{{validator.agreement_coefficient}}</td>
+      <td>{{validator.disagreement_coefficient}}</td>
       <td>{{validator.validations}}</td>
       <td ng-if="validator.domain">{{validator.domain}}</td>
       <td ng-if="!validator.domain"><a target='_blank' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification'>?</a></td>

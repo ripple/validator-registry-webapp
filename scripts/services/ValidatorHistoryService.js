@@ -5,7 +5,7 @@ angular.module('validatorsApp').factory('ValidatorHistoryService',
   function fetch(validationPublicKey) {
     return new Promise(function(resolve, reject) {
       $http({
-        url: window.config.VALIDATOR_REGISTRY_API+"/reports/"+validationPublicKey,
+        url: window.config.VALIDATOR_REGISTRY_API+"/validators/"+validationPublicKey+"/reports",
         method: "GET"
       }).success(function(data, status, headers, config) {
         resolve(data.reports)

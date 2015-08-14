@@ -2,8 +2,7 @@
   "name": "validator-registry-webapp",
   "version": "0.1.1",
   "dependencies": {
-    "ejs": "^2.3.2",
-    "express": "^4.12.4",
+    "moment": "^2.10.6",
     "serve": "^1.4.0",
     "superagent": "^1.3.0"
   },
@@ -12,13 +11,16 @@
     "url": "git://github.com/ripple/validator-registry-webapp.git"
   },
   "scripts": {
+    "prestart": "npm run build",
     "start": "serve ./",
-    "test": "echo 'insert full test cover here'"
+    "test": "echo 'insert full test cover here'",
+    "build": "browserify src/browserify.js -o scripts/vendor/browserify.js"
   },
   "bin": {
     "validator-registry-webapp": "./server.js"
   },
   "devDependencies": {
+    "browserify": "^11.0.1",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^2.0.0",
     "grunt-concurrent": "^1.0.0",
