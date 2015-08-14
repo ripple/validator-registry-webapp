@@ -18,8 +18,8 @@
     </thead>
     <tr ng-repeat="report in reports">
       <td>{{report.date}}</td>
-      <td>{{report.entries[0].agreement_coefficient}}</td>
-      <td>{{report.entries[0].disagreement_coefficient}}</td>
+      <td>{{report.entries[0].agreement_coefficient.toFixed(5)}}</td>
+      <td>{{report.entries[0].disagreement_coefficient.toFixed(5)}}</td>
       <td>{{report.entries[0].validations}}</td>
     </tr>
   </table>
