@@ -149,6 +149,10 @@ h1 {
   text-align: left;
 }
 
+.validator-show-domain a {
+  text-decoration: underline;
+}
+
 .notice, .alert {
   top: 80px;
   position: relative;
