@@ -15,6 +15,8 @@ angular.module('validatorsApp')
     'Validators',
     'UNLBuilder', function ($scope, ValidatorSelector, Validators, UNLBuilder) {
 
+    ValidatorSelector.clear()
+
     $scope.buildUNL = function() {
       var validators = ValidatorSelector.getSelectedValidators()
       var quorum = ValidatorSelector.getQuorum()

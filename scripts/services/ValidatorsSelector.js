@@ -32,12 +32,17 @@ angular.module('validatorsApp').factory('ValidatorsSelectorService', function() 
       return quorum
     }
 
+    function clear() {
+      selectedValidators = {}
+    }
+
     return {
       isSelected: isSelected,
       toggleSelection: toggleSelection,
       getSelectedCount: getSelectedCount,
       getSelectedValidators: getSelectedValidators,
-      getQuorum: getQuorum
+      getQuorum: getQuorum,
+      clear: clear
     }
   })()
 })

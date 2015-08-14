@@ -180,3 +180,9 @@ td.toggle:hover {
 .hidden-thead {
   opacity: 0;
 }
+
+tr:hover {
+  opacity: 0.8;
+  cursor: pointer;
+
+}

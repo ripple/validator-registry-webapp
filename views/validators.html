@@ -33,6 +33,7 @@
 
     <tr
         ng-repeat="validator in validators"
+        ng-click="toggleSelected(validator)"
         ng-if="ValidatorSelector.isSelected(validator)"
         ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
       <td class='toggle' ng-click ='toggleSelected(validator)'>-</td>
@@ -63,6 +64,7 @@
     </thead>
     <tr ng-repeat="validator in validators"
         ng-if="!ValidatorSelector.isSelected(validator)"
+        ng-click="toggleSelected(validator)"
         ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
       <td class='toggle' ng-click ='toggleSelected(validator)'>+</td>
       <td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
