@@ -1,59 +1,79 @@
-
-<div class='row clipboard-well'>
-  <span>
-    <!--<div id="copy-button" data-toggle="modal" data-clipboard-text="{{unl_text}}" title="Click to copy me.">-->
-    <div ng-if="ValidatorSelector.getSelectedValidators().length > 0" data-target="#myModal" id='copy-button' data-toggle="modal">
-    Build UNL Config
-    </div>
-  </span>
-  <h2>Select a set of validators below for your UNL</h2>
+<div class='row'>
+  <h1>Validator Registry</h1>
+  <hr/>
+  <div class='loading row' ng-show='loading'>
+    <h2>{{status}}</h2>
+  </div>
 </div>
 
-<div class='loading row' ng-show='loading'>
-  <h2>{{status}}</h2>
+<div class='row'>
+  <h3 ng-if="ValidatorSelector.getSelectedValidators().length > 0">
+    <span class='pull-left'>
+      Validators Selected for UNL
+    </span>
+    <span class='pull-right'>
+      <div ng-if="ValidatorSelector.getSelectedValidators().length > 0" data-target="#myModal" id='copy-button' data-toggle="modal">
+      Build UNL Config
+      </div>
+    </span>
+  </h3>
 </div>
 
 <div class='row' ng-if="ValidatorSelector.getSelectedCount() > 0">
   <table class='table table-striped'>
-
-    <h3>Validators Selected for UNL</h3>
+    <thead class='hidden-thead'>
+      <tr>
+        <th></th>
+        <th>Validation Public Key</th>
+        <th>Agreement</th>
+        <th>Disagreement</th>
+        <th>Validations Yesterday</th>
+        <th>Domain</th>
+      </tr>
+    </thead>
 
     <tr
         ng-repeat="validator in validators"
+        ng-click="toggleSelected(validator)"
         ng-if="ValidatorSelector.isSelected(validator)"
         ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
       <td class='toggle' ng-click ='toggleSelected(validator)'>-</td>
-      <td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
-      <td>{{validator.correlation_coefficient}}</td>
+      <td><a ng-click='$event.stopPropagation()' ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
+      <td>{{validator.agreement_coefficient.toFixed(5)}}</td>
+      <td>{{validator.disagreement_coefficient.toFixed(5)}}</td>
       <td>{{validator.validations}}</td>
-      <td ng-if="validator.domain">{{validator.domain}}</td>
-      <td ng-if="!validator.domain"><a target='_blank' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification'>?</a></td>
+      <td ng-if="validator.domain"><a ng-click='$event.stopPropagation()' href='https://{{validator.domain}}'>{{validator.domain}}</a></td>
+      <td ng-if="!validator.domain"><a ng-click='$event.stopPropagation()' target='_blank' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification'>?</a></td>
     </tr>
 
   </table>
 </div>
 
 <div class='row' ng-hide='loading'>
+  <h3 class='pull-left' ng-if="ValidatorSelector.getSelectedValidators().length == 0">Select a set of validators below for your UNL</h3>
   <table class='table table-striped'>
 
     <thead>
       <tr>
         <th></th>
         <th>Validation Public Key</th>
-        <th>Agreement Coefficient</th>
+        <th>Agreement</th>
+        <th>Disagreement</th>
         <th>Validations Yesterday</th>
         <th>Domain</th>
       </tr>
     </thead>
     <tr ng-repeat="validator in validators"
         ng-if="!ValidatorSelector.isSelected(validator)"
+        ng-click="toggleSelected(validator)"
         ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
-      <td class='toggle' ng-click ='toggleSelected(validator)'>+</td>
-      <td><a ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
-      <td>{{validator.correlation_coefficient}}</td>
+      <td class='toggle' ng-click='toggleSelected(validator)'>+</td>
+      <td><a ng-click='$event.stopPropagation()' ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
+      <td>{{validator.agreement_coefficient.toFixed(5)}}</td>
+      <td>{{validator.disagreement_coefficient.toFixed(5)}}</td>
       <td>{{validator.validations}}</td>
-      <td ng-if="validator.domain">{{validator.domain}}</td>
-      <td ng-if="!validator.domain"><a target='_blank' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification'>?</a></td>
+      <td ng-if="validator.domain"><a ng-click='$event.stopPropagation()' href='https://{{validator.domain}}'>{{validator.domain}}</a></td>
+      <td ng-if="!validator.domain"><a ng-click='$event.stopPropagation()' target='_blank' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification'>?</a></td>
     </tr>
 
   </table>

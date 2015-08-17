@@ -1,0 +1,195 @@
+/*
+  ******************
+  Custom CSS
+  ******************
+*/
+
+html, body {
+  font-family: 'Open Sans';
+}
+
+.main {
+  top: 80px;
+  position: relative;
+}
+
+header .container {
+  margin-left: 100px;
+}
+
+.validator-form {
+  margin-top:2em;
+}
+
+.validator-form input[type='submit']{
+  margin-top:1em;
+}
+
+.navbar a.navbar-brand img {
+  width: 115px
+}
+
+h1,h2,p,a,td,li {
+  font-family: 'Open Sans';
+}
+
+h1 {
+  text-align: left;
+}
+
+h1 a {
+  color: black;
+}
+
+h2 {
+  padding-top:0.5em;
+  color: rgba(32, 7, 114, 1.0);
+  text-align: left;
+}
+
+h3 {
+  text-align: left;
+}
+
+.build-unl-button {
+  margin-bottom: 2em;
+}
+
+img.clipboard {
+  width:50px;
+}
+
+#copy-button {
+  margin-left: 1em;
+  font-size: 12px;
+  text-align: center;
+  max-width: 250px;
+  padding: 10px 20px;
+  margin-bottom: 1em;
+  float: right;
+  background-color: rgba(204,204,204,0.1);
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  color: #000;
+  -o-transition: .5s;
+  -webkit-transition: .5s;
+  transition: .5s;
+  cursor: pointer;
+}
+
+#copy-button:hover {
+  text-decoration: none;
+  background: #fff;
+  background-color: rgba(204,204,204,0.3);
+  border: 1px solid #ccc;
+  -o-transition: .5s;
+  -webkit-transition: .5s;
+  transition: .5s;
+  cursor: hand;
+}
+
+.links {
+  float:right;
+  padding-top:0.5em;
+  font-size: 150%
+}
+
+.built-on-ripple {
+  width: 150px;
+  float: right;
+}
+
+.modal-open header {
+  opacity: .5;
+}
+
+.footer {
+  margin-top:6em;
+  margin-bottom: 2em;
+}
+
+.loading h2{
+  text-align:center;
+}
+
+.selected-validators {
+}
+
+a, td:hover, tr:hover {
+  cursor: hand;
+}
+
+.modal {
+  top: 150px;
+}
+
+.clipboard-well {
+  margin-bottom: 2em;
+}
+
+.table-row-hover {
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition: 5s;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+h2, h3, h4, h5, h6, a {
+  color: #346AA9;
+}
+
+h1 {
+  color: black
+}
+
+.validator-show-domain {
+  text-align: left;
+}
+
+.validator-show-domain a {
+  text-decoration: underline;
+}
+
+.notice, .alert {
+  top: 80px;
+  position: relative;
+}
+
+.input-error {
+  display: none;
+  padding: 0.5em;
+  color: red;
+  border: 1px solid red;
+}
+
+.input-group {
+  width: 100%;
+}
+
+thead {
+  background: #eaf0f7
+}
+
+td.toggle:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+.toggle a {
+  cursor: pointer;
+}
+
+.hidden-thead {
+  opacity: 0;
+}
+
+tr:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+tr a:hover {
+  text-decoration:underline;
+}

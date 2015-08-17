@@ -2,16 +2,17 @@
 angular.module('validatorsApp').factory('Validators',['$http', function($http) {
 
   var combined
+  var DATE = moment().subtract(1, 'day').format('YYYY-MM-DD')
 
   function fetchReport() {
     return new Promise(function(resolve,reject) {
       http
-        .get(window.config.VALIDATOR_REGISTRY_API+'/reports')
+        .get(window.config.VALIDATOR_REGISTRY_API+'/reports/'+DATE)
         .end(function(error, response) {
           if (error) {
             reject(error)
           } else {
-            resolve(response.body.report.validators)
+            resolve(response.body.report)
           }
         })
     })
@@ -40,7 +41,7 @@ angular.module('validatorsApp').factory('Validators',['$http', function($http) {
         return fetchValidators().then(function(validators) {
 
           var reduced = reduceValidators(validators, report)
-          combined = sortByCorrelationCoefficient(reduced)
+          combined = sortByAgreementCoefficient(reduced)
 
           return combined
         })
@@ -48,26 +49,25 @@ angular.module('validatorsApp').factory('Validators',['$http', function($http) {
     }
   }
 
-  function sortByCorrelationCoefficient(validations) {
+  function sortByAgreementCoefficient(validations) {
     return _.sortBy(validations, function(validation) {
-      return validation.correlation_coefficient * -1
+      return validation.agreement_coefficient * -1
     })
   }
 
   function reduceValidators(validators, report) {
     var reduced = []
 
-    _.keys(report).forEach(function(validationPublicKey) {
-
+    report.entries.forEach(function(validatatorReportEntry) {
       var validator = _.find(validators, function(validator) {
-        return validator.validation_public_key === validationPublicKey
+        return validator.validation_public_key === validatatorReportEntry.validation_public_key
       })
 
       reduced.push({
-        validation_public_key: validationPublicKey,
-        correlation_coefficient: report[validationPublicKey].correlation_coefficient || 0,
-        divergence_coefficient: undefined,
-        validations: report[validationPublicKey].validations,
+        validation_public_key: validator.validation_public_key,
+        agreement_coefficient: validatatorReportEntry.agreement_coefficient,
+        disagreement_coefficient: validatatorReportEntry.disagreement_coefficient,
+        validations: validatatorReportEntry.validations,
         domain: validator.domain
       })
     })
