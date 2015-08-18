@@ -198,6 +198,10 @@ td.toggle:hover {
   color: #888;
 }
 
+.disclaimer {
+  color: #888;
+}
+
 tr a:hover {
   text-decoration:underline;
 }
