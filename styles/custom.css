@@ -185,9 +185,17 @@ td.toggle:hover {
   opacity: 0;
 }
 
+.validator {
+  color: #888;
+}
+
 .validator:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+
+.report {
+  color: #888;
 }
 
 tr a:hover {

@@ -19,7 +19,7 @@
         <th>Total Validations</th>
       </tr>
     </thead>
-    <tr ng-repeat="report in reports">
+    <tr ng-repeat="report in reports" class='report'>
       <td>{{report.date}}</td>
       <td>{{report.entries[0].agreement_coefficient.toFixed(5)}}</td>
       <td>{{report.entries[0].disagreement_coefficient.toFixed(5)}}</td>
