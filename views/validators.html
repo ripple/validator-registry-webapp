@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div class='row'>
+<!-- <div class='row'>
   <h3 ng-if="ValidatorSelector.getSelectedValidators().length > 0">
     <span class='pull-left'>
       Validators Selected for UNL
@@ -17,7 +17,7 @@
       </div>
     </span>
   </h3>
-</div>
+</div> -->
 
 <div class='row' ng-if="ValidatorSelector.getSelectedCount() > 0">
   <table class='table table-striped'>
@@ -51,7 +51,7 @@
 </div>
 
 <div class='row' ng-hide='loading'>
-  <h3 class='pull-left' ng-if="ValidatorSelector.getSelectedValidators().length == 0">Select a set of validators below for your UNL</h3>
+  <!-- <h3 class='pull-left' ng-if="ValidatorSelector.getSelectedValidators().length == 0">Select a set of validators below for your UNL</h3> -->
   <table class='table table-striped'>
 
     <thead>
@@ -78,12 +78,14 @@
         <th>Domain</th>
       </tr>
     </thead>
-    <tr ng-repeat="validator in validators"
+<!--     <tr ng-repeat="validator in validators"
         ng-if="!ValidatorSelector.isSelected(validator)"
         ng-click="toggleSelected(validator)"
         ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}"
         class='validator'>
-      <td class='toggle' ng-click='toggleSelected(validator)'>+</td>
+      <td class='toggle' ng-click='toggleSelected(validator)'>+</td> -->
+    <tr ng-repeat="validator in validators" class='validator'>
+      <td></td>
       <td><a ng-click='$event.stopPropagation()' ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
       <td>{{validator.agreement_coefficient.toFixed(5)}}</td>
       <td>{{validator.disagreement_coefficient.toFixed(5)}}</td>
