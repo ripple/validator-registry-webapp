@@ -189,10 +189,10 @@ td.toggle:hover {
   color: #888;
 }
 
-.validator:hover {
+/*.validator:hover {
   cursor: pointer;
   opacity: 0.8;
-}
+}*/
 
 .report {
   color: #888;
