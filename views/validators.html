@@ -36,14 +36,15 @@
         ng-repeat="validator in validators"
         ng-click="toggleSelected(validator)"
         ng-if="ValidatorSelector.isSelected(validator)"
-        ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
+        ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}"
+        class='validator'>
       <td class='toggle' ng-click ='toggleSelected(validator)'>-</td>
       <td><a ng-click='$event.stopPropagation()' ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
       <td>{{validator.agreement_coefficient.toFixed(5)}}</td>
       <td>{{validator.disagreement_coefficient.toFixed(5)}}</td>
       <td>{{validator.validations}}</td>
-      <td ng-if="validator.domain"><a ng-click='$event.stopPropagation()' href='https://{{validator.domain}}'>{{validator.domain}}</a></td>
-      <td ng-if="!validator.domain"><a ng-click='$event.stopPropagation()' target='_blank' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification'>?</a></td>
+      <td ng-if="validator.domain"><a ng-click='$event.stopPropagation()' href='https://{{validator.domain}}' class='verified'>{{validator.domain}}</a></td>
+      <td ng-if="!validator.domain"><a ng-click='$event.stopPropagation()' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification' class='unverified'>unverified</a></td>
     </tr>
 
   </table>
@@ -57,8 +58,22 @@
       <tr>
         <th></th>
         <th>Validation Public Key</th>
-        <th>Agreement</th>
-        <th>Disagreement</th>
+        <th>
+          Agreement
+          <button type="button" class="tooltip-btn btn btn-default"
+            data-placement="top"
+            title="The percentage of ledgers that passed consensus that were validated by the validator"
+            onmouseenter="$(this).tooltip('show')">?
+          </button>
+        </th>
+        <th>
+          Disagreement
+          <button type="button" class="tooltip-btn btn btn-default"
+            data-placement="top"
+            title="The percentage of ledgers validated by the validator that did not pass consensus"
+            onmouseenter="$(this).tooltip('show')">?
+          </button>
+        </th>
         <th>Validations Yesterday</th>
         <th>Domain</th>
       </tr>
@@ -66,14 +81,15 @@
     <tr ng-repeat="validator in validators"
         ng-if="!ValidatorSelector.isSelected(validator)"
         ng-click="toggleSelected(validator)"
-        ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}">
+        ng-class="{'validator-selected': ValidatorSelector.isSelected(validator)}"
+        class='validator'>
       <td class='toggle' ng-click='toggleSelected(validator)'>+</td>
       <td><a ng-click='$event.stopPropagation()' ng-href="/#/validators/{{validator.validation_public_key}}">{{validator.validation_public_key}}</a></td>
       <td>{{validator.agreement_coefficient.toFixed(5)}}</td>
       <td>{{validator.disagreement_coefficient.toFixed(5)}}</td>
       <td>{{validator.validations}}</td>
-      <td ng-if="validator.domain"><a ng-click='$event.stopPropagation()' href='https://{{validator.domain}}'>{{validator.domain}}</a></td>
-      <td ng-if="!validator.domain"><a ng-click='$event.stopPropagation()' target='_blank' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification'>?</a></td>
+      <td ng-if="validator.domain"><a ng-click='$event.stopPropagation()' href='https://{{validator.domain}}' class='verified'>{{validator.domain}}</a></td>
+      <td ng-if="!validator.domain"><a ng-click='$event.stopPropagation()' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification' class='unverified'>unverified</a></td>
     </tr>
 
   </table>

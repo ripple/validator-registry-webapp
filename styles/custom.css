@@ -185,11 +185,35 @@ td.toggle:hover {
   opacity: 0;
 }
 
-tr:hover {
+.validator {
+  color: #888;
+}
+
+.validator:hover {
   cursor: pointer;
   opacity: 0.8;
 }
 
+.report {
+  color: #888;
+}
+
 tr a:hover {
   text-decoration:underline;
+}
+
+.verified, .verified:visited {
+  color: #5ac88f;
+}
+
+.unverified, .unverified:visited {
+  color: #da6265;
+}
+
+.tooltip-btn {
+  background-color: transparent;
+  border-radius: 99px;
+  padding: 0 7px;
+  margin-left: 5px;
+  font-size: 12px;
 }
