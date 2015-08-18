@@ -58,8 +58,22 @@
       <tr>
         <th></th>
         <th>Validation Public Key</th>
-        <th>Agreement</th>
-        <th>Disagreement</th>
+        <th>
+          Agreement
+          <button type="button" class="tooltip-btn btn btn-default"
+            data-placement="top"
+            title="The percentage of ledgers that passed consensus that were validated by the validator"
+            onmouseenter="$(this).tooltip('show')">?
+          </button>
+        </th>
+        <th>
+          Disagreement
+          <button type="button" class="tooltip-btn btn btn-default"
+            data-placement="top"
+            title="The percentage of ledgers validated by the validator that did not pass consensus"
+            onmouseenter="$(this).tooltip('show')">?
+          </button>
+        </th>
         <th>Validations Yesterday</th>
         <th>Domain</th>
       </tr>
