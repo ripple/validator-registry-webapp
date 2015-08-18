@@ -209,3 +209,11 @@ tr a:hover {
 .unverified, .unverified:visited {
   color: #da6265;
 }
+
+.tooltip-btn {
+  background-color: transparent;
+  border-radius: 99px;
+  padding: 0 7px;
+  margin-left: 5px;
+  font-size: 12px;
+}
