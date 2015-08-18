@@ -1,8 +1,11 @@
 
 <div class='row'>
   <h1><a ng-href='/#/'>Validator Registry</a></h1>
-  <h3 ng-if="domain" class='validator-show-domain'><a href='https://{{domain}}'>{{domain}}</a> - {{validatorPublicKey}}</h3>
-  <h3 ng-if="!domain" class='validator-show-domain'><a style='text-decoration:underline; font-weight:bold' href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification' target='_blank'>Unverified</a></h3>
+  <h3 class='validator-show-domain'>
+    <a ng-if="domain" href='https://{{domain}}' class='verified'>{{domain}}</a>
+    <a ng-if="!domain" href='https://ripple.com/build/rippled-apis/rippled-setup/#domain-verification' class='unverified'>Unverified</a>
+    - {{validatorPublicKey}}
+  </h3>
   <h2>Historical Performance</h2>
 </div>
 
@@ -16,7 +19,7 @@
         <th>Total Validations</th>
       </tr>
     </thead>
-    <tr ng-repeat="report in reports">
+    <tr ng-repeat="report in reports" class='report'>
       <td>{{report.date}}</td>
       <td>{{report.entries[0].agreement_coefficient.toFixed(5)}}</td>
       <td>{{report.entries[0].disagreement_coefficient.toFixed(5)}}</td>
