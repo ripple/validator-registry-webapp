@@ -1,5 +1,7 @@
 # validators.ripple.com human user interface
 
+[![Circle CI](https://circleci.com/gh/ripple/validator-registry-webapp.svg?style=svg)](https://circleci.com/gh/ripple/validator-registry-webapp)
+
 Completely static html, css, and javascript
 
 ## Dependencies
