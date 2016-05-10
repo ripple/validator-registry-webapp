@@ -63,6 +63,11 @@ angular.module('validatorsApp').factory('Validators',['$http', function($http) {
         return validator.validation_public_key === validatatorReportEntry.validation_public_key
       })
 
+      if (!validator) {
+        validator = validatatorReportEntry
+        validator.domain = null
+      }
+
       reduced.push({
         validation_public_key: validator.validation_public_key,
         agreement_coefficient: validatatorReportEntry.agreement_coefficient,
